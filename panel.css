@@ -1,0 +1,246 @@
+:root {
+  --bg: #1e1e1e;
+  --bg-alt: #252526;
+  --border: #3c3c3c;
+  --text: #d4d4d4;
+  --text-dim: #8a8a8a;
+  --accent: #4f46e5;
+  --accent-hover: #6358f0;
+  --get: #4caf50;
+  --post: #2196f3;
+  --put: #ff9800;
+  --delete: #f44336;
+  --ok: #4caf50;
+  --err: #f44336;
+  --warn: #ff9800;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 12px;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  background: var(--bg-alt);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 3;
+}
+
+.btn {
+  background: #333;
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 4px 10px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.btn:hover {
+  background: #3d3d3d;
+}
+
+.btn-small {
+  padding: 2px 8px;
+  font-size: 11px;
+}
+
+.btn-primary {
+  background: #333;
+}
+
+.btn-accent {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.btn-accent:hover {
+  background: var(--accent-hover);
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.count {
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+
+.env-bar {
+  padding: 6px 10px;
+  background: #181818;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-dim);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.section {
+  border-bottom: 1px solid var(--border);
+}
+
+.section-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 10px;
+  background: var(--bg-alt);
+  position: sticky;
+  top: 33px;
+  z-index: 2;
+}
+
+.entry-list {
+  max-height: 260px;
+  overflow: auto;
+}
+
+.entry {
+  display: flex;
+  gap: 8px;
+  padding: 6px 10px;
+  border-bottom: 1px solid #2a2a2a;
+  align-items: flex-start;
+}
+
+.entry:hover {
+  background: #2a2a2e;
+}
+
+.entry input[type="checkbox"] {
+  margin-top: 2px;
+}
+
+.entry-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.entry-level {
+  font-weight: 600;
+  margin-right: 6px;
+}
+
+.level-error { color: var(--err); }
+.level-warn { color: var(--warn); }
+
+.entry-message {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.entry-meta {
+  color: var(--text-dim);
+  font-size: 11px;
+  margin-top: 2px;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead th {
+  position: sticky;
+  top: 62px;
+  background: var(--bg-alt);
+  text-align: left;
+  padding: 5px 8px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-dim);
+  font-weight: 500;
+}
+
+tbody tr {
+  border-bottom: 1px solid #2a2a2a;
+}
+
+tbody tr:hover {
+  background: #2a2a2e;
+}
+
+tbody td {
+  padding: 5px 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 260px;
+}
+
+.col-select {
+  width: 24px;
+  text-align: center;
+}
+
+.col-path {
+  max-width: 420px;
+}
+
+.method {
+  font-weight: 600;
+}
+
+.method-GET { color: var(--get); }
+.method-POST { color: var(--post); }
+.method-PUT,
+.method-PATCH { color: var(--put); }
+.method-DELETE { color: var(--delete); }
+
+.status-ok { color: var(--ok); }
+.status-err { color: var(--err); }
+
+.screenshot-preview {
+  display: block;
+  max-width: 100%;
+  padding: 10px;
+}
+
+textarea#reportOutput {
+  width: 100%;
+  height: 320px;
+  background: #111;
+  color: var(--text);
+  border: none;
+  border-top: 1px solid var(--border);
+  padding: 10px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  resize: vertical;
+}
+
+.empty {
+  padding: 16px 10px;
+  text-align: center;
+  color: var(--text-dim);
+  display: none;
+}
+
+.empty.visible {
+  display: block;
+}

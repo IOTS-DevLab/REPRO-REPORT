@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="panel.css" />
+  </head>
+  <body>
+    <div class="toolbar">
+      <button id="btnToggle" class="btn btn-primary" title="Pause/resume capture">⏸ Pause</button>
+      <button id="btnClear" class="btn" title="Clear everything captured">🗑 Clear</button>
+      <button id="btnScreenshot" class="btn" title="Capture a screenshot of the inspected tab">📷 Screenshot</button>
+
+      <span class="spacer"></span>
+
+      <span id="count" class="count">0 items</span>
+      <button id="btnGenerate" class="btn btn-accent">📝 Generate Report</button>
+    </div>
+
+    <div class="env-bar" id="envBar">Reload the page to capture environment info.</div>
+
+    <div class="section">
+      <div class="section-head">
+        <label class="checkbox">
+          <input type="checkbox" id="consoleSelectAll" />
+          Console &amp; Errors
+        </label>
+        <span id="consoleCount" class="count">0</span>
+      </div>
+      <div id="consoleList" class="entry-list"></div>
+      <div id="consoleEmpty" class="empty visible">
+        No console errors, warnings, or uncaught exceptions captured yet.
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-head">
+        <label class="checkbox">
+          <input type="checkbox" id="networkSelectAll" />
+          Failed Network Requests
+        </label>
+        <label class="checkbox">
+          <input type="checkbox" id="showAllRequests" />
+          show all (not just failed)
+        </label>
+        <span id="networkCount" class="count">0</span>
+      </div>
+      <table id="networkTable">
+        <thead>
+          <tr>
+            <th class="col-select"></th>
+            <th class="col-method">Method</th>
+            <th class="col-status">Status</th>
+            <th class="col-domain">Domain</th>
+            <th class="col-path">Path</th>
+            <th class="col-time">Time</th>
+          </tr>
+        </thead>
+        <tbody id="networkBody"></tbody>
+      </table>
+      <div id="networkEmpty" class="empty visible">
+        No failed requests captured yet.
+      </div>
+    </div>
+
+    <div class="section" id="screenshotSection" hidden>
+      <div class="section-head">
+        <span>Screenshot</span>
+        <button id="btnRemoveScreenshot" class="btn btn-small">Remove</button>
+      </div>
+      <img id="screenshotPreview" class="screenshot-preview" />
+    </div>
+
+    <div class="section" id="reportSection" hidden>
+      <div class="section-head">
+        <span>Bug Report (Markdown)</span>
+        <button id="btnCopyReport" class="btn btn-small">📋 Copy</button>
+        <button id="btnDownloadReport" class="btn btn-small">⬇ Download .md</button>
+        <button id="btnDownloadScreenshot" class="btn btn-small" hidden>⬇ Download screenshot .png</button>
+      </div>
+      <textarea id="reportOutput" readonly spellcheck="false"></textarea>
+    </div>
+
+    <script src="report.js"></script>
+    <script src="panel.js"></script>
+  </body>
+</html>
